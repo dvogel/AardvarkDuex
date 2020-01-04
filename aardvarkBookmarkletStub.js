@@ -1,18 +1,11 @@
 var showHtml = function (elem) {};
 
-var aardvark = {
-  isBookmarklet: true,
-  resourcePrefix: '/',
+aardvark.loadObject = function (obj) {
+  var c = 0;
 
-  // ------------------------------------------------
-  // onload function for script elements
-  loadObject: function (obj) {
-    var c = 0;
-
-    for (var x in obj) {
-      if (aardvark[x] == undefined) { aardvark[x] = obj[x]; }
-      c++;
-    }
+  for (var x in obj) {
+    if (aardvark[x] == undefined) { aardvark[x] = obj[x]; }
+    c++;
   }
-
 };
+

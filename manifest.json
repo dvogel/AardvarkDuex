@@ -4,8 +4,8 @@
   "version": "0.1",
   "description": "Prune web pages to highlight desired content.",
   "icons": {
-    "48": "icon-48.jpg",
-    "96": "icon-96.jpg"
+    "48": "logo-48.jpg",
+    "96": "logo-96.jpg"
   },
   "permissions": [
     "activeTab"
@@ -13,13 +13,17 @@
   "browser_action": {
     "browser_style": true,
     "default_icon": {
-      "32": "icon-32.jpg",
-      "48": "icon-48.jpg",
-      "96": "icon-96.jpg"
+      "32": "logo-32.jpg",
+      "48": "logo-48.jpg",
+      "96": "logo-96.jpg"
     },
     "default_title": "Aardvark"
   },
   "background": {
     "scripts": ["BackgroundAardvark.js"]
-  }
+  },
+  "web_accessible_resources": [
+    "aardvarkhelp.gif",
+    "closedbox.gif"
+  ]
 }
