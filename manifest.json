@@ -1,0 +1,25 @@
+{
+  "manifest_version": 2,
+  "name": "Aardvark Duex",
+  "version": "0.1",
+  "description": "Prune web pages to highlight desired content.",
+  "icons": {
+    "48": "icon-48.jpg",
+    "96": "icon-96.jpg"
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": {
+      "32": "icon-32.jpg",
+      "48": "icon-48.jpg",
+      "96": "icon-96.jpg"
+    },
+    "default_title": "Aardvark"
+  },
+  "background": {
+    "scripts": ["BackgroundAardvark.js"]
+  }
+}
