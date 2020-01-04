@@ -4,8 +4,7 @@
   "version": "0.1",
   "description": "Prune web pages to highlight desired content.",
   "icons": {
-    "48": "logo-48.jpg",
-    "96": "logo-96.jpg"
+    "48": "logo-48.jpg"
   },
   "permissions": [
     "activeTab"
@@ -13,9 +12,7 @@
   "browser_action": {
     "browser_style": true,
     "default_icon": {
-      "32": "logo-32.jpg",
-      "48": "logo-48.jpg",
-      "96": "logo-96.jpg"
+      "48": "logo-48.jpg"
     },
     "default_title": "Aardvark"
   },
