@@ -17,7 +17,7 @@
     "default_title": "Aardvark"
   },
   "background": {
-    "scripts": ["BackgroundAardvark.js"]
+    "scripts": ["backgroundAardvark.js"]
   },
   "web_accessible_resources": [
     "aardvarkhelp.gif",
