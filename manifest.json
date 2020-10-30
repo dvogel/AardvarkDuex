@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Aardvark Duex",
-  "version": "0.1",
+  "version": "0.2",
   "description": "Prune web pages to highlight desired content.",
   "icons": {
     "48": "logo-48.jpg"
