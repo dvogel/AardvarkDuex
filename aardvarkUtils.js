@@ -181,5 +181,18 @@ aardvark.loadObject({
 
   escapeForJavascript: function (s) {
     return s.replace(new RegExp('\n', 'g'), ' ').replace(new RegExp('\t', 'g'), ' ').replace(new RegExp('"', 'g'), '\\"').replace(new RegExp("\'", 'g'), "\\'").replace(new RegExp('<', 'g'), '&lt;').replace(new RegExp('>', 'g'), '&gt;');
-  }
+  },
+
+  replaceInnerHTML: function(target, htmlText) {
+    const parser = new DOMParser();
+    const parsed = parser.parseFromString(htmlText, "text/html");
+    const elems = parsed.getElementsByTagName("body");
+
+    while (target.firstChild != null) {
+      target.removeChild(target.firstChild);
+    }
+    for (var ix = 0; ix < elems.length; ix++) {
+      target.appendChild(elems[ix]);
+    }
+  },
 });

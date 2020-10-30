@@ -3,7 +3,7 @@ aardvark.loadObject({
   // -------------------------------------------------
   showHelpTip: function () {
     var dbox = new AardvarkDBox('#fff2db', false, true, true);
-    dbox.innerContainer.innerHTML = "<p style='clear: both; margin: 3px 0 0 0;'><img src='" + this.resourcePrefix + "aardvarkhelp.gif' style=' float: right; margin: 0 0 0px 0'>" + this.strings.initialTipText + '</p>';
+    this.replaceInnerHTML(dbox.innerContainer, "<p style='clear: both; margin: 3px 0 0 0;'><img src='" + this.resourcePrefix + "aardvarkhelp.gif' style=' float: right; margin: 0 0 0px 0'>" + this.strings.initialTipText + '</p>');
     dbox.innerContainer.style.width = '14em';
     dbox.innerContainer.style.height = '54px';
     dbox.show();
@@ -96,7 +96,7 @@ aardvark.loadObject({
 
     y += elem.offsetHeight + 2;
 
-    this.labelElem.innerHTML = string;
+    this.replaceInnerHTML(this.labelElem, string);
     this.labelElem.style.display = '';
 
     // adjust the label as necessary to make sure it is within screen and
@@ -167,10 +167,11 @@ aardvark.loadObject({
       var s1 = command.name.substring(0, command.keyOffset);
       var s2 = command.name.substring(command.keyOffset + 1);
 
-      this.keyboxElem.innerHTML = s1 + "<b style='font-size:2em;'>" +
-      command.name.charAt(command.keyOffset) + '</b>' + s2;
+
+      var keyboxHtml = s1 + "<b style='font-size:2em;'>" + command.name.charAt(command.keyOffset) + '</b>' + s2;
+      this.replaceInnerHTML(this.keyboxElem, keyboxHtml);
     } else {
-      this.keyboxElem.innerHTML = command.name;
+      this.replaceInnerHTML(this.keyboxElem, command.name);
     }
 
     var dims = this.getWindowDimensions();

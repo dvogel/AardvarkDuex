@@ -85,7 +85,7 @@ aardvark.loadObject({
   rip: function (elem) {
     if (window.RemoveItPermanently) { RemoveItPermanently.doRipNode(elem); } else {
       var dbox = new AardvarkDBox('#fff', true);
-      dbox.innerContainer.innerHTML = this.strings.ripHelp;
+      this.replaceInnerHTML(dbox.innerContainer, this.strings.ripHelp);
       dbox.show();
     }
     return true;
@@ -181,7 +181,7 @@ aardvark.loadObject({
   viewSource: function (elem) {
     var dbox = new AardvarkDBox('#fff', true, false, false, this.strings.viewHtmlSource, true);
     var v = this.getOuterHtmlFormatted(elem, 0);
-    dbox.innerContainer.innerHTML = v;
+    this.replaceInnerHTML(dbox.innerContainer, v);
 
     if (!this.doc.didViewSourceDboxCss) {
       this.createCSSRule('div.aardvarkdbox div', 'font-size: 13px; margin: 0; padding: 0;');
@@ -279,7 +279,7 @@ aardvark.loadObject({
           if (o.tagName == 'TD') {
             var tr = this.doc.createElement('TR');
             var td = this.doc.createElement('TD');
-            td.innerHTML = o.innerHTML;
+            this.replaceInnerHTML(td, o.innerHTML);
             tr.appendChild(td);
             tb.appendChild(tr);
           } else {
@@ -290,7 +290,7 @@ aardvark.loadObject({
               var td = o.childNodes.item(i);
               if (td.nodeName == 'TD') {
                 var newTd = this.doc.createElement('TD');
-                newTd.innerHTML = td.innerHTML;
+                this.replaceInnerHTML(newTd, td.innerHTML);
                 tr.appendChild(newTd);
               }
             }
@@ -299,7 +299,7 @@ aardvark.loadObject({
           clone = t;
         } else {
           var div = document.createElement('DIV');
-          div.innerHTML = o.outerHTML;
+          this.replaceInnerHTML(div, o.outerHTML);
           clone = div.firstChild;
         }
       } else {
@@ -633,7 +633,7 @@ aardvark.loadObject({
   // ------------------------------------------------------------
   makeJavascript: function (elem) {
     var dbox = new AardvarkDBox('#fff', true, false, false, this.strings.javascriptDomCode, true);
-    dbox.innerContainer.innerHTML = '<pre style="margin:3; width: 97%">' + this.domJavascript(elem, 0) + '</pre><br>';
+    this.replaceInnerHTML(dbox.innerContainer, '<pre style="margin:3; width: 97%">' + this.domJavascript(elem, 0) + '</pre><br>');
     dbox.show();
     return true;
   },
@@ -697,7 +697,7 @@ aardvark.loadObject({
     s += '</table><br>' + this.strings.karmaticsPlug;
 
     var dbox = new AardvarkDBox('#fff2db', true, true, true, this.strings.aardvarkKeystrokes);
-    dbox.innerContainer.innerHTML = s;
+    this.replaceInnerHTML(dbox.innerContainer, s);
     dbox.show();
     this.helpBoxId = dbox.id;
     return true;
@@ -732,7 +732,7 @@ aardvark.loadObject({
       path = '/' + xname + path;
     }
     var dbox = new AardvarkDBox('#fff', true, false, false, 'xPath', true);
-    dbox.innerContainer.innerHTML = '<pre wrap="virtual" style="margin:3; width: 97%">' + path + '</pre><br>';
+    this.replaceInnerHTML(dbox.innerContainer, '<pre wrap="virtual" style="margin:3; width: 97%">' + path + '</pre><br>');
     dbox.show();
   },
 
@@ -755,7 +755,7 @@ aardvark.loadObject({
           this.window['elem' + i] = elem;
           elem.tree = this.tree;
           var dbox = new AardvarkDBox('#feb', false, true, true);
-          dbox.innerContainer.innerHTML = "<p style='color: #000; margin: 3px 0 0 0;'>global variable \"<b>elem" + i + '</b>" created</p>';
+          this.replaceInnerHTML(dbox.innerContainer, "<p style='color: #000; margin: 3px 0 0 0;'>global variable \"<b>elem" + i + '</b>" created</p>');
           dbox.show();
           setTimeout(function(){ aardvark.killDbox(dbox.id); }, 2000);
           return true;
@@ -788,7 +788,7 @@ aardvark.loadObject({
   // --------------------------------------------------------
   showMessage: function (s) {
     var dbox = new AardvarkDBox('#feb', false, true, true);
-    dbox.innerContainer.innerHTML = s;
+    this.replaceInnerHTML(dbox.innerContainer, s);
     dbox.show();
     setTimeout(function(){ aardvark.killDbox(dbox.id); }, 2000);
   },
