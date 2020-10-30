@@ -7,7 +7,7 @@ aardvark.loadObject({
     dbox.innerContainer.style.width = '14em';
     dbox.innerContainer.style.height = '54px';
     dbox.show();
-    setTimeout('aardvark.killDbox(' + dbox.id + ')', 2000);
+    setTimeout(function(){ aardvark.killDbox(dbox.id); }, 2000);
     return true;
   },
 
@@ -182,7 +182,7 @@ aardvark.loadObject({
     this.moveElem(this.keyboxElem, x, y);
     this.keyboxElem.style.display = '';
     if (this.keyboxTimeoutHandle) { clearTimeout(this.keyboxTimeoutHandle); }
-    this.keyboxTimeoutHandle = setTimeout('aardvark.hideKeybox()', 400);
+    this.keyboxTimeoutHandle = setTimeout(function(){ aardvark.hideKeybox(); }, 400);
   },
 
   validIfBlockElements: {

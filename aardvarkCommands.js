@@ -757,7 +757,7 @@ aardvark.loadObject({
           var dbox = new AardvarkDBox('#feb', false, true, true);
           dbox.innerContainer.innerHTML = "<p style='color: #000; margin: 3px 0 0 0;'>global variable \"<b>elem" + i + '</b>" created</p>';
           dbox.show();
-          setTimeout('aardvark.killDbox(' + dbox.id + ')', 2000);
+          setTimeout(function(){ aardvark.killDbox(dbox.id); }, 2000);
           return true;
         }
       }
@@ -790,7 +790,7 @@ aardvark.loadObject({
     var dbox = new AardvarkDBox('#feb', false, true, true);
     dbox.innerContainer.innerHTML = s;
     dbox.show();
-    setTimeout('aardvark.killDbox(' + dbox.id + ')', 2000);
+    setTimeout(function(){ aardvark.killDbox(dbox.id); }, 2000);
   },
 
   // --------------------------------------------------------
